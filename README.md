@@ -2,7 +2,7 @@ Task Manager — Dockerized Microservices Stack
 
 ## Architecture Diagram
 
-![docker_img](images/docker_img.png)
+![docker_img](images/docker_img.jpg)
 
 Overview
 
