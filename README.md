@@ -84,7 +84,7 @@ docker --version
 docker compose version
 Setup and Run
 1 Clone the Repository
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+git clone https://github.com/AhmedAbdElnasserAhmed/task-manager-docker
 
 cd YOUR_REPOSITORY_NAME
 2 Generate SSL Certificates
