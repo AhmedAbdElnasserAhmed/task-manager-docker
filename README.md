@@ -1,71 +1,76 @@
 Task Manager — Dockerized Microservices Stack
-4
+
+## Architecture Diagram
+
+![docker_img](images/docker_img.png)
+
 Overview
 
-Task Manager is a containerized web application built using a modern microservices architecture. The system demonstrates how multiple services can be orchestrated together using Docker Compose.
+Task Manager is a containerized web application that demonstrates how multiple services can run together using Docker Compose.
 
-The application uses:
+The system is designed with a microservices architecture and includes:
 
 Nginx as a Load Balancer and Reverse Proxy
-Flask for the application backend (running in multiple instances)
-PostgreSQL as the primary database
-Redis for caching and performance optimization
+Flask backend running multiple instances
+PostgreSQL as the main database
+Redis as an in-memory cache
+Docker Compose for orchestration
 
-This project showcases best practices for DevOps workflows, container orchestration, and scalable web architecture.
+This project simulates a real production-style environment where multiple services interact together in a scalable architecture.
 
 Architecture
 
-The system is composed of the following services:
+The application is composed of the following services:
 
 Service	Description
-Nginx	Acts as a reverse proxy and load balancer
-Flask App (2 instances)	Backend API servers
+Nginx	Reverse proxy and load balancer
+Flask (2 instances)	Backend API containers
 PostgreSQL	Persistent relational database
 Redis	In-memory cache for performance
-Docker Compose	Service orchestration
+Docker Compose	Orchestrates all services
 Request Flow
-User Request
-     │
-     ▼
-   Nginx
-     │
-     ▼
-Flask Containers (Load Balanced)
-     │
-     ├────────► Redis (Cache)
-     │
-     ▼
- PostgreSQL (Database)
+User
+  │
+  ▼
+Nginx (Load Balancer)
+  │
+  ▼
+Flask Containers (Multiple Instances)
+  │
+  ├────► Redis (Caching Layer)
+  │
+  ▼
+PostgreSQL (Database)
 Project Structure
 task-manager/
 │
-├── flask_app.py          # Flask backend application
-├── requirements.txt      # Python dependencies
-├── init.sql              # Database initialization
+├── flask_app.py
+├── requirements.txt
+├── init.sql
 │
-├── conf/                 # Nginx configuration
+├── conf/
+│   └── nginx.conf
 │
-├── ssl/                  # SSL certificate generation
+├── ssl/
 │   └── generate_ssl.sh
 │
-├── static/               # Static resources
+├── static/
 │
-├── .env                  # Environment variables
-├── .env.example          # Environment template
+├── .env
+├── .env.example
 │
-└── docker-compose.yml    # Docker stack configuration
+└── docker-compose.yml
 Features
-Dockerized multi-service architecture
-Load balancing with Nginx
-Scalable Flask backend
-PostgreSQL persistent storage
+Multi-container Docker architecture
+Load balancing using Nginx
+Scalable backend using multiple Flask containers
+PostgreSQL for persistent data storage
 Redis caching layer
 SSL support for secure local development
 Environment variable configuration
-Production-style container networking
 Prerequisites
 
-Before running the project ensure you have installed:
+Before running the project, make sure you have installed:
 
 Docker
 Docker Compose
@@ -76,55 +81,50 @@ Verify installation:
 docker --version
 docker compose version
 Setup and Run
-1️⃣ Clone the Repository
-git clone https://github.com/YOUR_USERNAME/task-manager-docker.git
+1 Clone the Repository
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 
-cd task-manager-docker
-2️⃣ Generate SSL Certificates
-
-Run the script inside the ssl directory:
-
+cd YOUR_REPOSITORY_NAME
+2 Generate SSL Certificates
 cd ssl
 bash generate_ssl.sh
 cd ..
-3️⃣ Start the Application
-
-Build and run the containers:
-
+3 Start the Docker Stack
 docker compose up -d --build
-4️⃣ Access the Application
+4 Access the Application
 
-Open your browser:
+Open in your browser:
 
 https://localhost
-Container Overview
+Docker Commands
 
 Check running containers:
 
 docker ps
 
-Stop the stack:
+Stop the application:
 
 docker compose down
 Learning Objectives
 
 This project demonstrates practical knowledge of:
 
-Containerization with Docker
-Multi-service orchestration with Docker Compose
-Reverse proxy configuration with Nginx
-Microservice architecture patterns
-Backend scaling with multiple containers
+Docker containerization
+Multi-service architecture
+Load balancing with Nginx
+Redis caching
+PostgreSQL database integration
+Service orchestration using Docker Compose
 Secure local development using SSL
 Future Improvements
 
-Possible enhancements:
+Possible improvements:
 
-Add CI/CD pipeline (GitHub Actions)
-Deploy to Kubernetes
-Add monitoring (Prometheus + Grafana)
+Add CI/CD pipeline with GitHub Actions
+Deploy using Kubernetes
+Add Prometheus & Grafana monitoring
 Implement JWT authentication
-Add frontend (React or Flutter Web)
+Add Frontend (React / Flutter Web)
 Author
 
 Ahmed Abd Elnasser
