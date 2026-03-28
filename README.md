@@ -28,6 +28,7 @@ Flask (2 instances)	Backend API containers
 PostgreSQL	Persistent relational database
 Redis	In-memory cache for performance
 Docker Compose	Orchestrates all services
+```
 Request Flow
 User
   │
@@ -60,6 +61,7 @@ task-manager/
 ├── .env.example
 │
 └── docker-compose.yml
+```
 Features
 Multi-container Docker architecture
 Load balancing using Nginx
